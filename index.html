@@ -3,213 +3,601 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>V. Anbuchelvan · software, tools and repairs</title>
-  <meta name="description" content="V. Anbuchelvan builds Eesa AI, open-source Mac tools and local AI apps, and repairs hardware. Projects, live demos and contact.">
+  <title>V. Anbuchelvan | Engineer building Eesa AI</title>
+  <meta name="description" content="V. Anbuchelvan works on every layer of Eesa AI, ships open-source Mac apps and local AI tools, and repairs hardware. Work, timeline and contact.">
   <meta property="og:title" content="V. Anbuchelvan">
-  <meta property="og:description" content="I build software that businesses run their day on, and tools I wanted to exist.">
-  <meta property="og:image" content="https://anbu.work.gd/assets/slideview.jpg">
+  <meta property="og:description" content="I build software businesses run their day on.">
+  <meta property="og:image" content="https://zanyanbu.github.io/portfolio/assets/slideview.jpg">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://anbu.work.gd/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a855f7'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial' font-size='36' font-weight='700' text-anchor='middle' fill='%23fff'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="canonical" href="https://zanyanbu.github.io/portfolio/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111216'/%3E%3Ctext x='32' y='42' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23f3efe6'%3EVA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0b0e; --panel: #141419; --line: #26262d; --text: #f4f4f6; --muted: #9c9ca6;
-      --accent: #a855f7; --accent-2: #38bdf8; --radius: 16px;
+      --bone: #f3efe6; --paper: #fbfaf6; --ink: #111216; --ink-2: #1b1d24; --night: #0b0c0f;
+      --cobalt: #2444ff; --cobalt-dark: #142bae; --cobalt-light: #93a2ff;
+      --orange: #ff5b32; --orange-soft: #ffd9ce; --blue-soft: #dfe5ff;
+      --line: #c8c4b8; --muted: #666862; --chip: #e9e5da; --hair: rgba(255, 255, 255, .14);
+      --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+      --gutter: clamp(20px, 5.5vw, 80px);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font: 17px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { margin: 0; background: var(--bone); color: var(--ink); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
     a { color: inherit; }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
+    ul, ol { list-style: none; }
+    :focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
+    .dark :focus-visible, .contact :focus-visible, .foot :focus-visible, .bring :focus-visible { outline-color: var(--orange); }
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
+    .icon { width: 1.05em; height: 1.05em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .kicker { font: 500 .7rem/1.5 var(--mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cobalt); }
 
-    header { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
-    .brand { font-weight: 700; letter-spacing: .01em; text-decoration: none; }
-    nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-size: .95rem; }
-    nav a:hover { color: var(--text); }
+    /* Top bar */
+    .top { position: sticky; top: 0; z-index: 10; background: var(--bone); border-bottom: 1px solid var(--line); }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 76px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: .92rem; letter-spacing: -.02em; }
+    .mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--ink); font: 500 .72rem var(--mono); letter-spacing: .04em; }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a { text-decoration: none; font-weight: 700; font-size: .82rem; }
+    .nav a:hover { color: var(--cobalt); }
+    .nav .btn { height: 42px; }
+    .menu { display: none; width: 46px; height: 46px; border: 1px solid var(--ink); background: none; color: var(--ink); cursor: pointer; place-items: center; }
+    .menu .icon { width: 22px; height: 22px; }
+    .strip { background: var(--cobalt); color: #fff; text-align: center; padding: 13px 16px; font: 500 .7rem/1.4 var(--mono); letter-spacing: .2em; text-transform: uppercase; }
 
-    .hero { padding: 72px 0 64px; max-width: 880px; }
-    .eyebrow { color: var(--accent); font-size: .82rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin: 0 0 1.1em; }
-    h1 { font-size: clamp(2.3rem, 6.2vw, 4.3rem); line-height: 1.06; letter-spacing: -.025em; margin: 0 0 .5em; }
-    h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .lede { color: var(--muted); font-size: 1.2rem; max-width: 60ch; margin: 0 0 1.7em; }
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: .78em 1.4em; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); background: var(--panel); }
-    .btn:hover { border-color: #3b3b45; }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .btn.primary:hover { filter: brightness(.92); }
+    /* Buttons and links */
+    .btn { display: inline-flex; align-items: center; gap: 12px; height: 50px; padding: 0 20px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-weight: 800; font-size: .82rem; text-decoration: none; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+    .btn:hover { background: var(--ink); color: #fff; }
+    .btn.solid { background: var(--ink); color: #fff; }
+    .btn.solid:hover { background: var(--cobalt); border-color: var(--cobalt); }
+    .more { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 1px solid currentColor; font-weight: 800; font-size: .82rem; text-decoration: none; }
+    .more:hover .icon, a:hover > .more .icon { transform: translateX(3px); }
+    .more .icon { transition: transform .15s ease; }
 
-    section { padding: 64px 0; border-top: 1px solid var(--line); }
-    h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.15; letter-spacing: -.015em; margin: 0 0 .35em; }
-    .sub { color: var(--muted); max-width: 64ch; margin: 0 0 2em; }
+    /* Hero */
+    .hero { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(290px, .78fr); gap: clamp(32px, 7vw, 120px); align-items: start; padding: clamp(48px, 7.5vw, 104px) 0 clamp(44px, 5vw, 76px); }
+    h1 { font-size: clamp(2.9rem, 7.4vw, 6.4rem); font-weight: 800; letter-spacing: -.075em; line-height: .93; margin: .22em 0 .36em; }
+    .lede { max-width: 37em; font-size: clamp(1.05rem, 1.45vw, 1.32rem); line-height: 1.55; letter-spacing: -.015em; color: #3d3f3c; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+    .quiet { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 26px; }
+    .quiet a { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-weight: 700; font-size: .78rem; text-decoration: none; }
+    .quiet a:hover { color: var(--cobalt); }
+    .bring { background: var(--ink); color: #fff; padding: clamp(24px, 2.4vw, 34px); margin: 6px 18px 18px 0; box-shadow: 18px 18px 0 var(--orange); }
+    .bring .kicker { color: #a9abb3; }
+    .bring dl { margin-top: 26px; }
+    .bring dl div { padding: 20px 0; border-top: 1px solid var(--hair); }
+    .bring dt { font-weight: 800; font-size: 1.32rem; letter-spacing: -.045em; line-height: 1.2; }
+    .bring dd { margin-top: 5px; color: #a9abb3; font-size: .8rem; }
+    .open { display: flex; align-items: center; gap: 11px; padding-top: 20px; border-top: 1px solid var(--hair); font-size: .78rem; font-weight: 600; }
+    .open::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex: none; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-bottom: 0; }
+    .stats li { background: var(--bone); padding: 26px 28px 28px; }
+    .stats strong { display: block; font-size: clamp(1.7rem, 2.6vw, 2.2rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.15; }
+    .stats span { color: var(--muted); font-size: .78rem; }
 
-    .eesa { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; }
-    .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-    .facts li { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; }
-    .facts strong { display: block; }
-    .facts span { color: var(--muted); font-size: .95rem; }
-    .number { font-size: 2.6rem; font-weight: 700; letter-spacing: -.02em; line-height: 1; margin: 0 0 .15em; }
+    /* Sections */
+    .sec { padding: clamp(64px, 9vw, 128px) 0; border-top: 1px solid var(--line); }
+    .paper { background: var(--paper); }
+    .head { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px clamp(32px, 6vw, 96px); align-items: end; margin-bottom: clamp(36px, 4.5vw, 64px); }
+    h2 { font-size: clamp(2.1rem, 5.2vw, 4.4rem); font-weight: 800; letter-spacing: -.065em; line-height: .98; margin-top: .3em; max-width: 11.5em; }
+    .head p:not(.kicker) { color: var(--muted); max-width: 34em; }
+    h3 { font-weight: 800; letter-spacing: -.035em; line-height: 1.2; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; }
-    .card { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; transition: transform .18s ease, border-color .18s ease; }
-    .card:hover, .card:focus-visible { transform: translateY(-3px); border-color: #45454f; }
-    .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #000; border-bottom: 1px solid var(--line); }
-    .card div { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
-    .card h3 { margin: 0 0 .3em; font-size: 1.15rem; }
-    .card p { margin: 0 0 1em; color: var(--muted); font-size: .96rem; }
-    .card small { margin-top: auto; color: var(--accent-2); font-weight: 600; font-size: .9rem; }
-    .tag { color: var(--muted); font-weight: 400; }
+    /* What I do */
+    .domains { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .domains li { background: var(--paper); padding: 26px 26px 34px; }
+    .num { font: 400 .7rem var(--mono); color: var(--muted); letter-spacing: .08em; }
+    .domains h3 { font-size: 1.22rem; margin: 54px 0 10px; }
+    .domains p { color: var(--muted); font-size: .86rem; line-height: 1.6; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 26px; }
+    .chips span { background: var(--chip); padding: 5px 8px; font: 400 .68rem/1.3 var(--mono); }
 
-    .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
-    .timeline li { position: relative; padding: 0 0 22px 26px; }
-    .timeline li::before { content: ""; position: absolute; left: -7px; top: .5em; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
-    .timeline time { display: block; color: var(--accent-2); font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    /* Selected work */
+    .dark { background: var(--ink); color: #fff; border-top: 0; }
+    .dark .kicker { color: var(--cobalt-light); }
+    .dark .kicker.hot { color: var(--orange); }
+    .dark .head p:not(.kicker) { color: #b3b5bc; }
+    .case { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr); background: var(--ink-2); border: 1px solid var(--hair); }
+    .case-main { padding: clamp(28px, 5vw, 72px); }
+    .case-main .case-name { color: #fff; font-size: clamp(3.3rem, 8.6vw, 6.6rem); font-weight: 800; letter-spacing: -.075em; line-height: .9; margin: .42em 0 .2em; max-width: none; }
+    .case-main h3 { font-size: clamp(1.3rem, 2.3vw, 1.9rem); font-weight: 600; letter-spacing: -.045em; max-width: 17em; }
+    .case-main p:not(.kicker) { color: #b3b5bc; max-width: 36em; margin: 22px 0 30px; }
+    .case-side { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 4vw, 56px) clamp(24px, 3vw, 44px); border-left: 1px solid var(--hair); }
+    .case-side div { padding: 26px 0; border-top: 1px solid var(--hair); }
+    .case-side div:first-child { border-top: 0; padding-top: 0; }
+    .case-side div:last-child { padding-bottom: 0; }
+    .case-side p:last-child { font-weight: 700; font-size: .95rem; margin-top: 8px; }
+    .sub { margin: clamp(44px, 5vw, 72px) 0 18px; }
+    .layers, .addons { display: grid; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+    .layers { grid-template-columns: repeat(4, 1fr); }
+    .addons { grid-template-columns: repeat(5, 1fr); border-top: 0; }
+    .layers li, .addons li { background: var(--ink); padding: 26px; display: flex; flex-direction: column; }
+    .layers h3 { font-size: 1.22rem; margin: 30px 0 10px; }
+    .layers p:not(.kicker), .addons p { color: #b3b5bc; font-size: .86rem; }
+    .stack { margin-top: auto; padding-top: 28px; color: #8b8d95; font: 400 .68rem/1.5 var(--mono); }
+    .addons li { padding: 22px 26px 24px; }
+    .addons h3 { font-size: 1rem; margin-bottom: 6px; }
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .proj { display: flex; flex-direction: column; border: 1px solid var(--hair); text-decoration: none; transition: border-color .15s ease, background .15s ease; }
+    .proj:hover { border-color: rgba(255, 255, 255, .5); background: var(--ink-2); }
+    .proj img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-bottom: 1px solid var(--hair); background: #000; }
+    .proj-body { display: flex; flex-direction: column; flex: 1; padding: 26px 26px 28px; }
+    .proj h3 { font-size: 1.5rem; margin: 14px 0 10px; }
+    .proj p:not(.kicker) { color: #b3b5bc; font-size: .9rem; }
+    .proj .more { align-self: flex-start; margin-top: 22px; }
+    .layers p.stack, .proj p.stack { color: #8b8d95; font-size: .7rem; }
 
-    .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 1.4em; padding: 0; list-style: none; }
-    .stack li { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: .28em .9em; font-size: .9rem; color: var(--muted); }
-    .stack-label { font-weight: 700; margin: 0 0 .5em; }
+    /* Timeline */
+    .xp { display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(0, 2.25fr); gap: 20px clamp(20px, 3vw, 44px); padding: 44px 0; border-top: 1px solid var(--line); }
+    .xp .num { color: var(--cobalt); font-weight: 500; padding-top: 4px; }
+    .when { font: 400 .7rem var(--mono); color: var(--muted); letter-spacing: .04em; }
+    .xp h3 { font-size: 1.6rem; margin: 12px 0 8px; }
+    .xp .role { color: var(--muted); font-size: .84rem; max-width: 22em; }
+    .xp h4 { margin: 0 0 18px; font-size: 1.12rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.35; }
+    .dash li { position: relative; padding-left: 22px; margin-bottom: 12px; color: #3d3f3c; font-size: .9rem; }
+    .dash li::before { content: ""; position: absolute; left: 0; top: .75em; width: 10px; height: 2px; background: var(--cobalt); }
+    .log li { display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(0, 2.25fr); gap: 6px clamp(20px, 3vw, 44px); padding: 22px 0; border-top: 1px solid var(--line); align-items: baseline; }
+    .log li:last-child { border-bottom: 1px solid var(--line); }
+    .log p { font-size: .95rem; }
+    .log a, .rows a { text-decoration-color: var(--line); text-underline-offset: 3px; }
+    .log a:hover, .rows a:hover { color: var(--cobalt); }
 
-    footer { padding: 56px 0 64px; border-top: 1px solid var(--line); }
-    footer h2 { margin-bottom: .6em; }
-    .small { color: var(--muted); font-size: .9rem; margin-top: 2.4em; }
+    /* Hardware */
+    .builds { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .build { display: flex; flex-direction: column; padding: clamp(22px, 3vw, 40px); border: 1px solid var(--line); background: var(--blue-soft); text-decoration: none; }
+    .build.warm { background: var(--orange-soft); }
+    .build img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--ink); margin-bottom: 30px; }
+    .build .kicker { color: var(--ink); }
+    .build h3 { font-size: clamp(1.7rem, 3.2vw, 2.7rem); letter-spacing: -.06em; line-height: 1.02; margin: 18px 0 16px; max-width: 12em; }
+    .build p:not(.kicker) { font-size: .9rem; color: #33353a; max-width: 38em; }
+    .figure { margin-top: auto; padding-top: 34px; }
+    .figure strong { display: block; font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.1; }
+    .figure span { font-size: .76rem; color: #33353a; }
+    .build .more { margin-top: 22px; justify-content: space-between; }
 
-    @media (max-width: 820px) { .eesa { grid-template-columns: 1fr; gap: 24px; } nav a:nth-child(-n+2) { display: none; } .hero { padding: 44px 0 48px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .card { transition: none; } .card:hover { transform: none; } }
+    /* Education */
+    .rows li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3.2fr); gap: 8px 24px; padding: 34px 0; border-top: 1px solid var(--line); }
+    .rows li:last-child { border-bottom: 1px solid var(--line); }
+    .rows h3 { font-size: 1.22rem; margin-bottom: 6px; }
+    .rows p { font-size: .88rem; color: #3d3f3c; }
+    .rows .where { color: var(--muted); font-size: .78rem; margin-top: 6px; }
+    .rows .when { color: var(--muted); font-size: .7rem; padding-top: 6px; }
+
+    /* Contact and footer */
+    .contact { background: var(--cobalt); color: #fff; border-top: 0; }
+    .contact .kicker { color: #dfe5ff; }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px clamp(32px, 6vw, 96px); align-items: start; }
+    .contact h2 { max-width: 9em; }
+    .contact p:not(.kicker) { color: #dfe5ff; max-width: 30em; margin-top: 44px; }
+    .mail { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 30px; padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .4); font-size: clamp(1.02rem, 1.9vw, 1.5rem); font-weight: 800; letter-spacing: -.02em; text-decoration: none; overflow-wrap: anywhere; }
+    .mail:hover { border-color: #fff; }
+    .contact .quiet a { color: #dfe5ff; }
+    .contact .quiet a:hover { color: #fff; }
+    .foot { background: var(--night); color: #fff; padding: 56px 0 60px; }
+    .foot-grid { display: grid; grid-template-columns: 1.1fr 1.6fr 1fr 1fr; gap: 32px; align-items: start; }
+    .foot .mark { border-color: #fff; }
+    .foot p { color: #a9abb3; font-size: .8rem; }
+    .foot ul a { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .8rem; text-decoration: none; line-height: 2.1; }
+    .foot ul a:hover { color: var(--cobalt-light); }
+    .foot .right { text-align: right; }
+
+    @media (max-width: 1180px) {
+      .domains { grid-template-columns: repeat(3, 1fr); }
+      .addons { grid-template-columns: repeat(3, 1fr); }
+      .layers { grid-template-columns: repeat(2, 1fr); }
+      .projects { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .menu { display: grid; }
+      .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 6px var(--gutter) 22px; background: var(--bone); border-bottom: 1px solid var(--line); }
+      .top.is-open .nav { display: flex; }
+      .nav a:not(.btn) { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+      .nav .btn { margin-top: 18px; height: 50px; justify-content: center; }
+      .hero, .head, .case, .contact-grid { grid-template-columns: 1fr; }
+      .bring { margin: 0 14px 14px 0; box-shadow: 14px 14px 0 var(--orange); }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .case-side { border-left: 0; border-top: 1px solid var(--hair); }
+      .xp, .log li { grid-template-columns: 1fr; }
+      .xp { padding: 34px 0; }
+      .builds { grid-template-columns: 1fr; }
+      .rows li { grid-template-columns: 1fr; }
+      .contact p:not(.kicker) { margin-top: 0; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .foot .right { text-align: left; }
+    }
+    @media (max-width: 640px) {
+      .domains, .addons, .layers, .projects { grid-template-columns: 1fr; }
+      .domains h3 { margin-top: 30px; }
+      .actions .btn { flex: 1 1 100%; justify-content: center; }
+      .stats li { padding: 20px; }
+      .foot-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn, .proj, .more .icon { transition: none; }
+      .more:hover .icon, a:hover > .more .icon { transform: none; }
+    }
   </style>
+  <noscript><style>@media (max-width: 900px) { .menu { display: none; } .nav { display: flex; position: static; padding: 0 0 18px; border: 0; } .bar { flex-wrap: wrap; } }</style></noscript>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#top">V. Anbuchelvan</a>
-      <nav>
-        <a href="#eesa">Eesa AI</a>
-        <a href="#projects">Projects</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
+
+  <header class="top" id="site-top">
+    <div class="wrap bar">
+      <a class="brand" href="#top"><span class="mark">VA</span>V. Anbuchelvan</a>
+      <button class="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg class="icon"><use href="#i-menu"/></svg></button>
+      <nav class="nav" id="nav">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
         <a href="#hardware">Hardware</a>
         <a href="#contact">Contact</a>
+        <a class="btn" href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a>
       </nav>
-    </header>
+    </div>
+  </header>
+  <div class="strip">Engineer / Builder / Tinkerer</div>
 
-    <main id="top">
+  <main id="top">
+    <div class="wrap">
       <div class="hero">
-        <p class="eyebrow">Building Eesa AI · CS undergrad at SRM, Chennai</p>
-        <h1>I build software that businesses run their day on, <span>and tools I wanted to exist.</span></h1>
-        <p class="lede">I like taking things apart and rebuilding them: an AI agent platform, Mac utilities that reach into private frameworks, local AI apps, and the occasional dead computer or motorcycle.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projects">See the work</a>
-          <a class="btn" href="https://github.com/ZANYANBU">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/">LinkedIn</a>
-        </div>
-      </div>
-
-      <section id="eesa">
-        <div class="eesa">
-          <div>
-            <h2>Now: Eesa AI</h2>
-            <p class="sub"><a href="https://eesa.ai">Eesa</a> lets a business run its operations by asking. It connects to the systems a company already uses, builds the screens its team needs, and does the work, on the web, on iPhone and Android, and in WhatsApp. It is live in production.</p>
-            <p class="number">1,400+</p>
-            <p class="sub">commits across nine repositories since June 2026, on every layer of the product. The code is private; I am happy to walk through any of it.</p>
-            <a class="btn" href="https://eesa.ai">Visit eesa.ai</a>
+        <div>
+          <p class="kicker">V. Anbuchelvan / Building Eesa AI / CS undergrad at SRM</p>
+          <h1>I build software businesses run their day on.</h1>
+          <p class="lede">I work on every layer of Eesa AI, an agent platform that is live in production: the phone app, the web app, the backend and the add-ons the agent uses as tools. On the side I ship open-source Mac apps and local AI tools, and bring the odd dead computer or motorcycle back to life.</p>
+          <div class="actions">
+            <a class="btn solid" href="#work">See the work <svg class="icon"><use href="#i-down"/></svg></a>
+            <a class="btn" href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a>
           </div>
-          <ul class="facts">
-            <li><strong>Mobile app</strong><span>Primary contributor to the iOS and Android app, built with Flutter: chat, the Flow Board, and sharing a file to Eesa from any other app.</span></li>
-            <li><strong>Add-ons</strong><span>Primary contributor to five add-ons the agent uses as tools: Attendance, Drive, Invoices, Calls and QuickBooks.</span></li>
-            <li><strong>Backend</strong><span>Workflows that run on a schedule and wait for a person's answer, role-based access, and approval before the agent writes to an outside system. Python.</span></li>
-            <li><strong>Web app</strong><span>The same screens and flows in the browser, in Next.js and TypeScript.</span></li>
-          </ul>
+          <div class="quiet">
+            <a href="mailto:zanyanbuchelvan@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>Email</a>
+            <a href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/"><svg class="icon"><use href="#i-out"/></svg>LinkedIn</a>
+          </div>
         </div>
-      </section>
-
-      <section id="projects">
-        <h2>Things I built because I wanted them</h2>
-        <p class="sub">Open source, with tests, automated builds and downloads where they make sense. Each one opens its own page.</p>
-        <div class="grid">
-          <a class="card" href="https://zanyanbu.github.io/SlideView/">
-            <img src="assets/slideview.jpg" alt="The SlideView library showing lecture decks grouped by subject" width="960" height="600">
-            <div><h3>SlideView <span class="tag">· Swift</span></h3><p>A native Mac study app. Every lecture file in one dark, offline library, with a drawing board and a map of how your material connects.</p><small>Website and download →</small></div>
-          </a>
-          <a class="card" href="https://zanyanbu.github.io/aether/">
-            <img src="assets/aether.jpg" alt="The Aether chat welcome screen" width="960" height="600" loading="lazy">
-            <div><h3>Aether <span class="tag">· Python</span></h3><p>Private AI chat that runs entirely on your own machine with any Ollama model: text, images and hands-free voice.</p><small>Website →</small></div>
-          </a>
-          <a class="card" href="https://zanyanbu.github.io/keyboard-strobe/">
-            <img src="assets/strobe.jpg" alt="A MacBook in a dark room with its keyboard backlight lit" width="960" height="600" loading="lazy">
-            <div><h3>Keyboard Strobe <span class="tag">· Swift</span></h3><p>Flashes a MacBook's keyboard backlight in time with whatever is playing, by driving the LEDs through a private Apple framework.</p><small>Demo video and download →</small></div>
-          </a>
-          <a class="card" href="https://zanyanbu.github.io/haptic-mouse/">
-            <img src="assets/haptic.jpg" alt="The HapticMouse menu open in the menu bar" width="960" height="600" loading="lazy">
-            <div><h3>HapticMouse <span class="tag">· Swift</span></h3><p>Gives any cheap USB mouse a haptic scroll wheel by borrowing the Taptic Engine in the MacBook's trackpad.</p><small>Website and download →</small></div>
-          </a>
-          <a class="card" href="https://microsoftedge.microsoft.com/addons/detail/pmadlohecccigmfcmickngnlikhmnjpa">
-            <img src="assets/zanysurf.jpg" alt="The ZANYSURF browser agent working through a task" width="960" height="600" loading="lazy">
-            <div><h3>ZANYSURF Browser Agent <span class="tag">· JavaScript</span></h3><p>An AI agent that plans, clicks and fills in forms in the browser, fully local with Ollama or with other providers.</p><small>Published on Microsoft Edge Add-ons →</small></div>
-          </a>
-          <a class="card" href="https://github.com/ZANYANBU/Anbu-Surveillance">
-            <img src="assets/surveillance.jpg" alt="The Anbu Surveillance camera setup dialog" width="960" height="600" loading="lazy">
-            <div><h3>Anbu Surveillance <span class="tag">· Python</span></h3><p>Home security across several cameras: YOLO person detection, recorded clips and email alerts with a snapshot.</p><small>Source →</small></div>
-          </a>
-        </div>
-      </section>
-
-      <section id="hardware">
-        <h2>I take hardware apart too</h2>
-        <p class="sub">Two build logs, with photos of every stage.</p>
-        <div class="grid">
-          <a class="card" href="https://zanyanbu.github.io/junkyard-pc-to-truenas/">
-            <img src="assets/junkyard.jpg" alt="A salvaged PC running open on a bench" width="960" height="600" loading="lazy">
-            <div><h3>Junkyard PC to home server</h3><p>In first year I rebuilt a dead PC from e-waste: straightened bent socket pins, replaced a swollen capacitor, reflashed the BIOS, then recovered 200 GB from a wiped disk.</p><small>Read the build log →</small></div>
-          </a>
-          <a class="card" href="https://zanyanbu.github.io/tvs-centra-restoration/">
-            <img src="assets/tvs.jpg" alt="The restored TVS Centra motorcycle at night" width="960" height="600" loading="lazy">
-            <div><h3>TVS Centra restoration</h3><p>My father rode this bike for 20 years and 100,000 km. He and I brought it back with parts from a ₹3,000 scrapyard donor and a full AC to DC electrical conversion.</p><small>Read the build log →</small></div>
-          </a>
-        </div>
-      </section>
-
-      <section>
-        <h2>Building since 2024</h2>
-        <p class="sub">Something shipped in most quarters.</p>
-        <ul class="timeline">
-          <li><time>Oct 2026</time>Tests, automated builds and downloadable releases across the open-source projects.</li>
-          <li><time>Sep 2026</time>SlideView, because no slide viewer did what I needed for revision.</li>
-          <li><time>Jul 2026</time>Aether, HapticMouse and Keyboard Strobe in one month. Restored the TVS Centra.</li>
-          <li><time>Jun 2026</time>Joined the build of Eesa AI: backend, web, mobile and add-ons.</li>
-          <li><time>Mar 2026</time>ZANYSURF Browser Agent published on Microsoft Edge Add-ons.</li>
-          <li><time>Feb 2026</time>A school management system for a database course, and <a href="https://zanyanbu.github.io/Quantum-Classroom/">Quantum Classroom</a> as a side project.</li>
-          <li><time>Jul 2025</time>Rebuilt a PC from scrap and made it a TrueNAS server.</li>
-          <li><time>Mar 2025</time>First shipped things: <a href="https://zanyanbu.github.io/Birdfy.com/">Birdfy</a>, a browser game, and a YOLO home-security system.</li>
-          <li><time>2024</time>Started with CS50 and Python on edX.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>What I work with</h2>
-        <p class="stack-label">Languages</p>
-        <ul class="stack"><li>Python</li><li>Swift</li><li>TypeScript</li><li>JavaScript</li><li>Dart</li><li>C</li><li>SQL</li></ul>
-        <p class="stack-label">Mobile and web</p>
-        <ul class="stack"><li>Flutter</li><li>Next.js</li><li>React Native</li><li>FastAPI</li><li>Flask</li><li>Node.js</li></ul>
-        <p class="stack-label">Building AI products</p>
-        <ul class="stack"><li>MCP</li><li>LangGraph</li><li>Claude API</li><li>Agent tool design</li><li>Ollama</li><li>PyTorch</li><li>YOLO</li><li>OpenCV</li></ul>
-        <p class="stack-label">AI-assisted development</p>
-        <ul class="stack"><li>Claude Code</li><li>Google Antigravity</li><li>GitHub Copilot</li></ul>
-        <p class="stack-label">Systems</p>
-        <ul class="stack"><li>macOS internals</li><li>Linux</li><li>Docker</li><li>PostgreSQL</li><li>GitHub Actions</li><li>TrueNAS</li><li>AWS</li></ul>
-      </section>
-    </main>
-
-    <footer id="contact">
-      <h2>Get in touch</h2>
-      <p class="sub">I am open to internships and engineering roles, and glad to talk through anything on this page.</p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:zanyanbuchelvan@gmail.com">zanyanbuchelvan@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/">LinkedIn</a>
-        <a class="btn" href="https://github.com/ZANYANBU">GitHub</a>
+        <aside class="bring" aria-label="What I bring">
+          <p class="kicker">What I bring</p>
+          <dl>
+            <div><dt>1,400+ commits</dt><dd>On Eesa AI since June 2026</dd></div>
+            <div><dt>The whole product</dt><dd>Phone app, web, backend, agent tools</dd></div>
+            <div><dt>3 Mac apps</dt><dd>Released and ready to download</dd></div>
+            <div><dt>Hardware too</dt><dd>A server from scrap, a motorcycle restored</dd></div>
+          </dl>
+          <p class="open">Open to internships and engineering roles</p>
+        </aside>
       </div>
-      <p class="small">Understand it from first principles, then build it.</p>
-    </footer>
-  </div>
+      <ul class="stats">
+        <li><strong>1,400+</strong><span>commits on Eesa AI in four months</span></li>
+        <li><strong>9</strong><span>repositories across the product</span></li>
+        <li><strong>5</strong><span>add-ons the agent uses as tools</span></li>
+        <li><strong>168</strong><span>automated tests in my open-source projects</span></li>
+      </ul>
+    </div>
+
+    <section class="sec paper" id="skills">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <p class="kicker">01 / What I do</p>
+            <h2>What I build, and what I build it with</h2>
+          </div>
+          <p>Five kinds of work, each next to the tools I reach for when I do it.</p>
+        </div>
+        <ul class="domains">
+          <li>
+            <p class="num">01</p>
+            <h3>AI agents and local AI</h3>
+            <p>Tools an agent can call, workflows that wait for a person's answer, and approval before anything is written to an outside system. Local models for chat and vision.</p>
+            <div class="chips"><span>MCP</span><span>LangGraph</span><span>Claude API</span><span>Agent tool design</span><span>Ollama</span><span>PyTorch</span><span>YOLO</span><span>OpenCV</span></div>
+          </li>
+          <li>
+            <p class="num">02</p>
+            <h3>Phone apps</h3>
+            <p>The iPhone and Android app for Eesa, written in Flutter: chat, boards, and sharing a file in from any other app.</p>
+            <div class="chips"><span>Flutter</span><span>Dart</span><span>Swift</span><span>React Native</span></div>
+          </li>
+          <li>
+            <p class="num">03</p>
+            <h3>Web and backend</h3>
+            <p>Screens in the browser and the services behind them, with tests and builds that run on every push.</p>
+            <div class="chips"><span>Python</span><span>FastAPI</span><span>Flask</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Docker</span><span>GitHub Actions</span></div>
+          </li>
+          <li>
+            <p class="num">04</p>
+            <h3>Mac apps and systems</h3>
+            <p>Native utilities that reach where apps usually do not: the keyboard's LEDs, the trackpad's haptics, the sound the Mac is playing.</p>
+            <div class="chips"><span>Swift</span><span>C</span><span>macOS internals</span><span>ScreenCaptureKit</span><span>XCTest</span><span>Linux</span><span>TrueNAS</span></div>
+          </li>
+          <li>
+            <p class="num">05</p>
+            <h3>AI-assisted development</h3>
+            <p>I build with coding agents every day, and back what they write with tests and automated builds.</p>
+            <div class="chips"><span>Claude Code</span><span>Google Antigravity</span><span>GitHub Copilot</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec dark" id="work">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <p class="kicker">02 / Selected work</p>
+            <h2>What I built, and why</h2>
+          </div>
+          <p>The product I work on every day comes first. After it, the tools I made because I wanted them to exist.</p>
+        </div>
+
+        <article class="case" id="eesa">
+          <div class="case-main">
+            <p class="kicker hot">1 / Product / Live in production</p>
+            <p class="case-name">EESA.AI</p>
+            <h3>A business runs its operations by asking.</h3>
+            <p>Eesa connects to the systems a company already uses, builds the screens its team needs, and does the work: on the web, on iPhone and Android, and in WhatsApp.</p>
+            <a class="more" href="https://eesa.ai">Visit eesa.ai <svg class="icon"><use href="#i-right"/></svg></a>
+          </div>
+          <div class="case-side">
+            <div><p class="kicker hot">Problem</p><p>A small business's day is spread over apps, spreadsheets and chat threads that do not talk to each other.</p></div>
+            <div><p class="kicker hot">Product</p><p>One agent that reads those systems, builds a screen for each job and carries out the request, with a person's approval where it matters.</p></div>
+            <div><p class="kicker hot">My part</p><p>The phone app, five add-ons, workflow and approval work in the backend, and the same screens on the web.</p></div>
+          </div>
+        </article>
+
+        <p class="kicker hot sub">My work on Eesa, layer by layer</p>
+        <ul class="layers">
+          <li>
+            <p class="kicker hot">Phone app</p>
+            <h3>iPhone and Android</h3>
+            <p>Primary contributor to the app: chat, the Flow Board, and sharing a file to Eesa from any other app.</p>
+            <p class="stack">Flutter / Dart / Swift</p>
+          </li>
+          <li>
+            <p class="kicker hot">Add-ons</p>
+            <h3>Tools the agent can use</h3>
+            <p>Primary contributor to five add-ons that plug into the agent as tools and show up in chat, on the boards and on the team's phones.</p>
+            <p class="stack">Node.js / MCP / PostgreSQL</p>
+          </li>
+          <li>
+            <p class="kicker hot">Backend</p>
+            <h3>Workflows, roles, approvals</h3>
+            <p>Workflows that run on a schedule and wait for a person's answer, role-based access for add-ons, approval before the agent writes to an outside system, and the server-driven share page.</p>
+            <p class="stack">Python / LangGraph</p>
+          </li>
+          <li>
+            <p class="kicker hot">Web app</p>
+            <h3>The same screens in the browser</h3>
+            <p>The flows from the phone, built again for the web.</p>
+            <p class="stack">Next.js / TypeScript</p>
+          </li>
+        </ul>
+        <ul class="addons">
+          <li><h3>Attendance</h3><p>Staff clock in on site from their phone, and timesheets add themselves up.</p></li>
+          <li><h3>Drive</h3><p>Team folders and sharing.</p></li>
+          <li><h3>Invoices</h3><p>Supplier invoices shared in from a phone, and sent on once approved.</p></li>
+          <li><h3>Calls</h3><p>102 read-only agent tools generated from Dialpad's OpenAPI spec.</p></li>
+          <li><h3>QuickBooks</h3><p>The agent reads the accounts. Every write waits for an approver.</p></li>
+        </ul>
+
+        <p class="kicker hot sub">Open source, built because I wanted it</p>
+        <div class="projects">
+          <a class="proj" href="https://zanyanbu.github.io/SlideView/">
+            <img src="assets/slideview.jpg" alt="The SlideView library showing lecture decks grouped by subject" width="960" height="600" loading="lazy">
+            <div class="proj-body">
+              <p class="kicker hot">2 / Mac app / Swift</p>
+              <h3>SlideView</h3>
+              <p>A native Mac study app. Every lecture file in one dark, offline library, with a drawing board and a map of how your material connects.</p>
+              <p class="stack">58 tests / Released as a download</p>
+              <span class="more">Website and download <svg class="icon"><use href="#i-right"/></svg></span>
+            </div>
+          </a>
+          <a class="proj" href="https://zanyanbu.github.io/aether/">
+            <img src="assets/aether.jpg" alt="The Aether chat welcome screen" width="960" height="600" loading="lazy">
+            <div class="proj-body">
+              <p class="kicker hot">3 / Local AI / Python</p>
+              <h3>Aether</h3>
+              <p>Private AI chat that runs entirely on your own machine with any Ollama model: text, images and hands-free voice.</p>
+              <p class="stack">Python / Ollama</p>
+              <span class="more">Website <svg class="icon"><use href="#i-right"/></svg></span>
+            </div>
+          </a>
+          <a class="proj" href="https://zanyanbu.github.io/keyboard-strobe/">
+            <img src="assets/strobe.jpg" alt="A MacBook in a dark room with its keyboard backlight lit" width="960" height="600" loading="lazy">
+            <div class="proj-body">
+              <p class="kicker hot">4 / Mac app / Swift</p>
+              <h3>Keyboard Strobe</h3>
+              <p>Flashes a MacBook's keyboard backlight in time with whatever is playing, by driving the LEDs through a private Apple framework.</p>
+              <p class="stack">Swift / ScreenCaptureKit</p>
+              <span class="more">Demo video and download <svg class="icon"><use href="#i-right"/></svg></span>
+            </div>
+          </a>
+          <a class="proj" href="https://zanyanbu.github.io/haptic-mouse/">
+            <img src="assets/haptic.jpg" alt="The HapticMouse menu open in the menu bar" width="960" height="600" loading="lazy">
+            <div class="proj-body">
+              <p class="kicker hot">5 / Mac app / Swift</p>
+              <h3>HapticMouse</h3>
+              <p>Gives any cheap USB mouse a haptic scroll wheel by borrowing the Taptic Engine in the MacBook's trackpad.</p>
+              <p class="stack">Swift / Released as a download</p>
+              <span class="more">Website and download <svg class="icon"><use href="#i-right"/></svg></span>
+            </div>
+          </a>
+          <a class="proj" href="https://microsoftedge.microsoft.com/addons/detail/pmadlohecccigmfcmickngnlikhmnjpa">
+            <img src="assets/zanysurf.jpg" alt="The ZANYSURF browser agent working through a task" width="960" height="600" loading="lazy">
+            <div class="proj-body">
+              <p class="kicker hot">6 / Browser agent / JavaScript</p>
+              <h3>ZANYSURF Browser Agent</h3>
+              <p>An AI agent that plans, clicks and fills in forms in the browser, fully local with Ollama or with other providers.</p>
+              <p class="stack">JavaScript / Ollama</p>
+              <span class="more">On Microsoft Edge Add-ons <svg class="icon"><use href="#i-right"/></svg></span>
+            </div>
+          </a>
+          <a class="proj" href="https://github.com/ZANYANBU/Anbu-Surveillance">
+            <img src="assets/surveillance.jpg" alt="The Anbu Surveillance camera setup dialog" width="960" height="600" loading="lazy">
+            <div class="proj-body">
+              <p class="kicker hot">7 / Computer vision / Python</p>
+              <h3>Anbu Surveillance</h3>
+              <p>Home security across several cameras: YOLO person detection, recorded clips and email alerts with a snapshot.</p>
+              <p class="stack">Python / YOLO / OpenCV</p>
+              <span class="more">Source <svg class="icon"><use href="#i-right"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="experience">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <p class="kicker">03 / Experience</p>
+            <h2>Building since 2024</h2>
+          </div>
+          <p>Something shipped in most quarters.</p>
+        </div>
+        <article class="xp">
+          <p class="num">01</p>
+          <div>
+            <p class="when">Jun 2026 - Present</p>
+            <h3>Eesa AI</h3>
+            <p class="role">Phone app, add-ons, backend and web</p>
+          </div>
+          <div>
+            <h4>Working across the whole of an agent platform that businesses use every day.</h4>
+            <ul class="dash">
+              <li>Primary contributor to the iPhone and Android app in Flutter: chat, the Flow Board, and sharing a file to Eesa from any other app.</li>
+              <li>Primary contributor to five add-ons that plug into the agent as tools: Attendance, Drive, Invoices, Calls and QuickBooks.</li>
+              <li>Worked on workflows that run on a schedule and wait for a person's answer, role-based access for add-ons, and approval before the agent writes to an outside system.</li>
+              <li>1,400+ commits across nine repositories in four months. The code is private, and I am happy to walk through any part of it.</li>
+            </ul>
+          </div>
+        </article>
+        <ol class="log">
+          <li><span class="num">02</span><span class="when">Oct 2026</span><p>Tests, automated builds and downloadable releases across the open-source projects.</p></li>
+          <li><span class="num">03</span><span class="when">Sep 2026</span><p>SlideView, because no slide viewer did what I needed for revision.</p></li>
+          <li><span class="num">04</span><span class="when">Jul 2026</span><p>Aether, HapticMouse and Keyboard Strobe in one month. Restored the TVS Centra.</p></li>
+          <li><span class="num">05</span><span class="when">Mar 2026</span><p>ZANYSURF Browser Agent published on Microsoft Edge Add-ons.</p></li>
+          <li><span class="num">06</span><span class="when">Feb 2026</span><p>A school management system for a database course, and <a href="https://zanyanbu.github.io/Quantum-Classroom/">Quantum Classroom</a> as a side project.</p></li>
+          <li><span class="num">07</span><span class="when">Jul 2025</span><p>Rebuilt a PC from scrap and made it a TrueNAS server.</p></li>
+          <li><span class="num">08</span><span class="when">Mar 2025</span><p>First shipped things: <a href="https://zanyanbu.github.io/Birdfy.com/">Birdfy</a>, a browser game, and a YOLO home-security system.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec paper" id="hardware">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <p class="kicker">04 / Hardware</p>
+            <h2>I take hardware apart too</h2>
+          </div>
+          <p>Two build logs, with photos of every stage. The same habit as the software: understand it from first principles, then build it.</p>
+        </div>
+        <div class="builds">
+          <a class="build" href="https://zanyanbu.github.io/junkyard-pc-to-truenas/">
+            <img src="assets/junkyard.jpg" alt="A salvaged PC running open on a bench" width="960" height="600" loading="lazy">
+            <p class="kicker">Home server / 2025</p>
+            <h3>Junkyard PC to home server</h3>
+            <p>In first year I rebuilt a dead PC from e-waste: straightened bent socket pins, replaced a swollen capacitor and reflashed the BIOS. It now runs TrueNAS.</p>
+            <div class="figure"><strong>200 GB</strong><span>recovered from a wiped disk</span></div>
+            <span class="more">Read the build log <svg class="icon"><use href="#i-right"/></svg></span>
+          </a>
+          <a class="build warm" href="https://zanyanbu.github.io/tvs-centra-restoration/">
+            <img src="assets/tvs.jpg" alt="The restored TVS Centra motorcycle at night" width="960" height="600" loading="lazy">
+            <p class="kicker">Motorcycle / 2026</p>
+            <h3>TVS Centra restoration</h3>
+            <p>My father rode this bike for 20 years. He and I brought it back with parts from a ₹3,000 scrapyard donor and a full AC to DC electrical conversion.</p>
+            <div class="figure"><strong>100,000 km</strong><span>on the bike before we rebuilt it</span></div>
+            <span class="more">Read the build log <svg class="icon"><use href="#i-right"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="education">
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <p class="kicker">05 / Education</p>
+            <h2>Education</h2>
+          </div>
+        </div>
+        <ul class="rows">
+          <li>
+            <p class="when">Third year</p>
+            <div>
+              <h3>SRM Institute of Science &amp; Technology</h3>
+              <p>Undergraduate in Computer Science</p>
+              <p class="where">Chennai, India</p>
+            </div>
+          </li>
+          <li>
+            <p class="when">2024</p>
+            <div>
+              <h3>CS50 and Python on edX</h3>
+              <p>Where I started. The certificates are in <a href="https://github.com/ZANYANBU/Certificates">one place</a>.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="kicker">06 / Contact</p>
+          <h2>Have something that needs building?</h2>
+        </div>
+        <div>
+          <p>I am open to internships and engineering roles, and glad to walk through anything on this page.</p>
+          <a class="mail" href="mailto:zanyanbuchelvan@gmail.com">zanyanbuchelvan@gmail.com <svg class="icon"><use href="#i-out"/></svg></a>
+          <div class="quiet">
+            <a href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/"><svg class="icon"><use href="#i-out"/></svg>LinkedIn</a>
+            <a href="https://github.com/ZANYANBU"><svg class="icon"><use href="#i-out"/></svg>GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <a class="brand" href="#top"><span class="mark">VA</span>V. Anbuchelvan</a>
+      <p>Building Eesa AI, open-source Mac apps and local AI tools.</p>
+      <ul>
+        <li><a href="mailto:zanyanbuchelvan@gmail.com">Email <svg class="icon"><use href="#i-out"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/">LinkedIn <svg class="icon"><use href="#i-out"/></svg></a></li>
+        <li><a href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a></li>
+      </ul>
+      <p class="right">Chennai, India<br>© 2026 V. Anbuchelvan</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var top = document.getElementById("site-top");
+      var button = top.querySelector(".menu");
+      function setOpen(open) {
+        top.classList.toggle("is-open", open);
+        button.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+      button.addEventListener("click", function () { setOpen(!top.classList.contains("is-open")); });
+      top.querySelector(".nav").addEventListener("click", function (event) {
+        if (event.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>
