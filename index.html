@@ -9,181 +9,207 @@
   <meta property="og:description" content="I build software businesses run their day on.">
   <meta property="og:image" content="https://zanyanbu.github.io/portfolio/assets/slideview.jpg">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f4f4ef">
   <link rel="canonical" href="https://zanyanbu.github.io/portfolio/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111216'/%3E%3Ctext x='32' y='42' font-family='Menlo,Consolas,monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23f3efe6'%3EVA%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237c3aed'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial' font-size='38' font-weight='700' text-anchor='middle' fill='%23fff'%3EA%3C/text%3E%3Ccircle cx='50' cy='14' r='6' fill='%23c8f542'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bone: #f3efe6; --paper: #fbfaf6; --ink: #111216; --ink-2: #1b1d24; --night: #0b0c0f;
-      --cobalt: #2444ff; --cobalt-dark: #142bae; --cobalt-light: #93a2ff;
-      --orange: #ff5b32; --orange-soft: #ffd9ce; --blue-soft: #dfe5ff;
-      --line: #c8c4b8; --muted: #666862; --chip: #e9e5da; --hair: rgba(255, 255, 255, .14);
-      --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-      --mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+      --paper: #f4f4ef; --white: #fff; --ink: #14131a; --ink-2: #1e1c28; --grid: #e2e2d8; --line: #d6d5cb; --muted: #64635d;
+      --violet: #7c3aed; --violet-deep: #5b21b6; --lavender: #ebe4ff;
+      --lime: #c8f542; --lime-soft: #edf8c6; --hair: rgba(255, 255, 255, .13); --soft: #b9b7c4;
+      --sans: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
       --gutter: clamp(20px, 5.5vw, 80px);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-    body { margin: 0; background: var(--bone); color: var(--ink); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16.5px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
     a { color: inherit; }
     img { display: block; max-width: 100%; }
-    h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
+    h1, h2, h3, h4, p, ul, ol, figure { margin: 0; padding: 0; }
     ul, ol { list-style: none; }
-    :focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
-    .dark :focus-visible, .contact :focus-visible, .foot :focus-visible, .bring :focus-visible { outline-color: var(--orange); }
+    :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 6px; }
+    .dark :focus-visible, .foot :focus-visible { outline-color: var(--lime); }
     .wrap { max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
-    .icon { width: 1.05em; height: 1.05em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .kicker { font: 500 .7rem/1.5 var(--mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cobalt); }
+    .icon { width: 1.05em; height: 1.05em; flex: none; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .label { font: 500 .72rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .kicker { display: flex; align-items: center; gap: 12px; color: var(--violet); }
+    .kicker b { background: var(--ink); color: var(--lime); padding: 3px 9px; border-radius: 999px; font-weight: 500; letter-spacing: .06em; }
 
-    /* Top bar */
-    .top { position: sticky; top: 0; z-index: 10; background: var(--bone); border-bottom: 1px solid var(--line); }
-    .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 76px; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: .92rem; letter-spacing: -.02em; }
-    .mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--ink); font: 500 .72rem var(--mono); letter-spacing: .04em; }
+    /* Top bar and ticker */
+    .top { position: sticky; top: 0; z-index: 10; background: rgba(244, 244, 239, .88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 74px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 1.02rem; letter-spacing: -.02em; }
+    .mark { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--violet); color: #fff; font-weight: 800; font-size: 1.15rem; }
+    .mark::after { content: ""; position: absolute; top: -3px; right: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--lime); border: 2px solid var(--paper); }
     .nav { display: flex; align-items: center; gap: 28px; }
-    .nav a { text-decoration: none; font-weight: 700; font-size: .82rem; }
-    .nav a:hover { color: var(--cobalt); }
+    .nav a { text-decoration: none; font-weight: 600; font-size: .92rem; }
+    .nav a:not(.btn):hover { color: var(--violet); }
     .nav .btn { height: 42px; }
-    .menu { display: none; width: 46px; height: 46px; border: 1px solid var(--ink); background: none; color: var(--ink); cursor: pointer; place-items: center; }
+    .menu { display: none; width: 46px; height: 46px; border: 1.5px solid var(--ink); border-radius: 12px; background: none; color: var(--ink); cursor: pointer; place-items: center; }
     .menu .icon { width: 22px; height: 22px; }
-    .strip { background: var(--cobalt); color: #fff; text-align: center; padding: 13px 16px; font: 500 .7rem/1.4 var(--mono); letter-spacing: .2em; text-transform: uppercase; }
+    .ticker { overflow: hidden; background: var(--ink); color: var(--lime); }
+    .ticker-track { display: flex; width: max-content; animation: tick 46s linear infinite; }
+    .ticker span { padding: 12px 0; white-space: nowrap; font: 500 .72rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
+    .ticker span::after { content: "\2726"; margin: 0 26px; color: #fff; opacity: .45; }
+    @keyframes tick { to { transform: translateX(-50%); } }
 
     /* Buttons and links */
-    .btn { display: inline-flex; align-items: center; gap: 12px; height: 50px; padding: 0 20px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-weight: 800; font-size: .82rem; text-decoration: none; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border: 1.5px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); font-weight: 700; font-size: .92rem; text-decoration: none; transition: background .15s ease, color .15s ease, border-color .15s ease; }
     .btn:hover { background: var(--ink); color: #fff; }
     .btn.solid { background: var(--ink); color: #fff; }
-    .btn.solid:hover { background: var(--cobalt); border-color: var(--cobalt); }
-    .more { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 1px solid currentColor; font-weight: 800; font-size: .82rem; text-decoration: none; }
-    .more:hover .icon, a:hover > .more .icon { transform: translateX(3px); }
+    .btn.solid:hover { background: var(--violet); border-color: var(--violet); }
+    .btn.lime { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+    .btn.lime:hover { background: #fff; border-color: #fff; color: var(--ink); }
+    .more { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--violet); font-weight: 700; font-size: .9rem; text-decoration: none; }
+    .dark .more { border-color: var(--lime); }
     .more .icon { transition: transform .15s ease; }
+    a:hover > .more .icon, a.more:hover .icon, a:hover .more .icon { transform: translateX(4px); }
 
     /* Hero */
-    .hero { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(290px, .78fr); gap: clamp(32px, 7vw, 120px); align-items: start; padding: clamp(48px, 7.5vw, 104px) 0 clamp(44px, 5vw, 76px); }
-    h1 { font-size: clamp(2.9rem, 7.4vw, 6.4rem); font-weight: 800; letter-spacing: -.075em; line-height: .93; margin: .22em 0 .36em; }
-    .lede { max-width: 37em; font-size: clamp(1.05rem, 1.45vw, 1.32rem); line-height: 1.55; letter-spacing: -.015em; color: #3d3f3c; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
-    .quiet { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 26px; }
-    .quiet a { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-weight: 700; font-size: .78rem; text-decoration: none; }
-    .quiet a:hover { color: var(--cobalt); }
-    .bring { background: var(--ink); color: #fff; padding: clamp(24px, 2.4vw, 34px); margin: 6px 18px 18px 0; box-shadow: 18px 18px 0 var(--orange); }
-    .bring .kicker { color: #a9abb3; }
-    .bring dl { margin-top: 26px; }
-    .bring dl div { padding: 20px 0; border-top: 1px solid var(--hair); }
-    .bring dt { font-weight: 800; font-size: 1.32rem; letter-spacing: -.045em; line-height: 1.2; }
-    .bring dd { margin-top: 5px; color: #a9abb3; font-size: .8rem; }
-    .open { display: flex; align-items: center; gap: 11px; padding-top: 20px; border-top: 1px solid var(--hair); font-size: .78rem; font-weight: 600; }
-    .open::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex: none; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-bottom: 0; }
-    .stats li { background: var(--bone); padding: 26px 28px 28px; }
-    .stats strong { display: block; font-size: clamp(1.7rem, 2.6vw, 2.2rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.15; }
-    .stats span { color: var(--muted); font-size: .78rem; }
+    .hero-band { background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 34px 34px; background-position: center top; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, .95fr); gap: clamp(32px, 5vw, 88px); align-items: center; padding: clamp(40px, 5.5vw, 84px) 0 clamp(40px, 5vw, 72px); }
+    .status { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 12px; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--white); }
+    .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #22c55e; flex: none; box-shadow: 0 0 0 4px rgba(34, 197, 94, .2); }
+    h1 { font-size: clamp(2.9rem, 7.3vw, 6.3rem); font-weight: 800; letter-spacing: -.05em; line-height: .95; margin: .34em 0 .38em; }
+    h1 em { font-style: normal; background: linear-gradient(transparent 60%, var(--lime) 60% 93%, transparent 93%); }
+    .lede { max-width: 36em; font-size: clamp(1.08rem, 1.45vw, 1.32rem); line-height: 1.55; color: #37363d; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .quiet { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 24px; }
+    .quiet a { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-weight: 600; font-size: .88rem; text-decoration: none; }
+    .quiet a:hover { color: var(--violet); }
+    .portrait { position: relative; width: min(100% - 14px, 470px); margin: 0 14px 14px auto; aspect-ratio: 920 / 951; }
+    .portrait-panel { position: absolute; inset: 17% 0 0; border: 1.5px solid var(--ink); border-radius: 30px; background-color: var(--violet); background-image: linear-gradient(rgba(255, 255, 255, .13) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .13) 1px, transparent 1px); background-size: 34px 34px; box-shadow: 12px 12px 0 var(--lime); }
+    .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 0 0 29px 29px; padding: 0 1.5px 1.5px; }
+    .nametag { position: absolute; left: -22px; bottom: 26px; padding: 12px 18px 13px; background: var(--white); border: 1.5px solid var(--ink); border-radius: 16px; box-shadow: 5px 5px 0 var(--ink); }
+    .nametag strong { display: block; font-size: 1.12rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.25; }
+    .nametag span { color: var(--muted); }
+    .sticker { position: absolute; right: -32px; top: 50%; padding: 8px 14px; background: var(--lime); border: 1.5px solid var(--ink); border-radius: 999px; transform: rotate(7deg); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border: 1.5px solid var(--ink); border-radius: 20px; overflow: hidden; }
+    .stats li { padding: 24px 28px 26px; border-left: 1px solid var(--line); }
+    .stats li:first-child { border-left: 0; }
+    .stats strong { display: block; font-size: clamp(1.9rem, 2.9vw, 2.6rem); font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
+    .stats span { color: var(--muted); font-size: .86rem; }
 
     /* Sections */
-    .sec { padding: clamp(64px, 9vw, 128px) 0; border-top: 1px solid var(--line); }
-    .paper { background: var(--paper); }
-    .head { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px clamp(32px, 6vw, 96px); align-items: end; margin-bottom: clamp(36px, 4.5vw, 64px); }
-    h2 { font-size: clamp(2.1rem, 5.2vw, 4.4rem); font-weight: 800; letter-spacing: -.065em; line-height: .98; margin-top: .3em; max-width: 11.5em; }
-    .head p:not(.kicker) { color: var(--muted); max-width: 34em; }
-    h3 { font-weight: 800; letter-spacing: -.035em; line-height: 1.2; }
+    .sec { padding: clamp(64px, 8.5vw, 124px) 0; }
+    .first { padding-top: clamp(56px, 7vw, 100px); }
+    .white { background: var(--white); border-block: 1px solid var(--line); }
+    .head { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px clamp(32px, 6vw, 96px); align-items: end; margin-bottom: clamp(34px, 4.2vw, 60px); }
+    h2 { font-size: clamp(2.1rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -.045em; line-height: 1; margin-top: .34em; max-width: 12em; }
+    .head > p { color: var(--muted); max-width: 34em; font-size: 1.02rem; }
+    h3 { font-weight: 700; letter-spacing: -.03em; line-height: 1.2; }
 
     /* What I do */
-    .domains { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-    .domains li { background: var(--paper); padding: 26px 26px 34px; }
-    .num { font: 400 .7rem var(--mono); color: var(--muted); letter-spacing: .08em; }
-    .domains h3 { font-size: 1.22rem; margin: 54px 0 10px; }
-    .domains p { color: var(--muted); font-size: .86rem; line-height: 1.6; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 26px; }
-    .chips span { background: var(--chip); padding: 5px 8px; font: 400 .68rem/1.3 var(--mono); }
+    .domains { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .domains li { display: flex; flex-direction: column; background: var(--white); border: 1.5px solid var(--ink); border-radius: 18px; padding: 22px 22px 24px; transition: transform .15s ease, box-shadow .15s ease; }
+    .domains li:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--lime); }
+    .num { font: 500 .72rem var(--mono); color: var(--violet); letter-spacing: .06em; }
+    .domains h3 { font-size: 1.3rem; margin: 36px 0 10px; }
+    .domains p:not(.num) { color: var(--muted); font-size: .92rem; line-height: 1.55; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 24px; }
+    .chips span { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 4px 10px; font: 400 .7rem/1.4 var(--mono); }
 
     /* Selected work */
-    .dark { background: var(--ink); color: #fff; border-top: 0; }
-    .dark .kicker { color: var(--cobalt-light); }
-    .dark .kicker.hot { color: var(--orange); }
-    .dark .head p:not(.kicker) { color: #b3b5bc; }
-    .case { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr); background: var(--ink-2); border: 1px solid var(--hair); }
+    .dark { background: var(--ink); color: #fff; }
+    .dark .kicker { color: var(--lime); }
+    .dark .kicker b { background: var(--lime); color: var(--ink); }
+    .dark .head > p { color: var(--soft); }
+    .tone { color: var(--lime); }
+    .case { position: relative; display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr); border-radius: 26px; overflow: hidden; background-color: var(--violet-deep); background-image: linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px); background-size: 34px 34px; }
     .case-main { padding: clamp(28px, 5vw, 72px); }
-    .case-main .case-name { color: #fff; font-size: clamp(3.3rem, 8.6vw, 6.6rem); font-weight: 800; letter-spacing: -.075em; line-height: .9; margin: .42em 0 .2em; max-width: none; }
-    .case-main h3 { font-size: clamp(1.3rem, 2.3vw, 1.9rem); font-weight: 600; letter-spacing: -.045em; max-width: 17em; }
-    .case-main p:not(.kicker) { color: #b3b5bc; max-width: 36em; margin: 22px 0 30px; }
-    .case-side { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 4vw, 56px) clamp(24px, 3vw, 44px); border-left: 1px solid var(--hair); }
-    .case-side div { padding: 26px 0; border-top: 1px solid var(--hair); }
+    .live { display: inline-flex; align-items: center; gap: 10px; padding: 6px 13px 6px 11px; border-radius: 999px; background: var(--ink); color: var(--lime); }
+    .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+    .case-name { font-size: clamp(3.3rem, 8.4vw, 6.6rem); font-weight: 800; letter-spacing: -.055em; line-height: .9; margin: .4em 0 .22em; }
+    .case-name span { color: var(--lime); }
+    .case-main h3 { font-size: clamp(1.35rem, 2.3vw, 1.95rem); font-weight: 600; max-width: 17em; }
+    .case-text { color: rgba(255, 255, 255, .84); max-width: 35em; margin: 20px 0 32px; }
+    .case-side { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 4vw, 56px) clamp(24px, 3vw, 44px); background: rgba(20, 19, 26, .34); border-left: 1px solid rgba(255, 255, 255, .2); }
+    .case-side div { padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, .2); }
     .case-side div:first-child { border-top: 0; padding-top: 0; }
     .case-side div:last-child { padding-bottom: 0; }
-    .case-side p:last-child { font-weight: 700; font-size: .95rem; margin-top: 8px; }
-    .sub { margin: clamp(44px, 5vw, 72px) 0 18px; }
-    .layers, .addons { display: grid; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+    .case-side p:last-child { font-weight: 600; font-size: 1.02rem; margin-top: 8px; line-height: 1.5; }
+    .sub { margin: clamp(44px, 5vw, 68px) 0 18px; color: var(--lime); }
+    .layers, .addons { display: grid; gap: 14px; }
     .layers { grid-template-columns: repeat(4, 1fr); }
-    .addons { grid-template-columns: repeat(5, 1fr); border-top: 0; }
-    .layers li, .addons li { background: var(--ink); padding: 26px; display: flex; flex-direction: column; }
-    .layers h3 { font-size: 1.22rem; margin: 30px 0 10px; }
-    .layers p:not(.kicker), .addons p { color: #b3b5bc; font-size: .86rem; }
-    .stack { margin-top: auto; padding-top: 28px; color: #8b8d95; font: 400 .68rem/1.5 var(--mono); }
-    .addons li { padding: 22px 26px 24px; }
-    .addons h3 { font-size: 1rem; margin-bottom: 6px; }
-    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .proj { display: flex; flex-direction: column; border: 1px solid var(--hair); text-decoration: none; transition: border-color .15s ease, background .15s ease; }
-    .proj:hover { border-color: rgba(255, 255, 255, .5); background: var(--ink-2); }
-    .proj img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-bottom: 1px solid var(--hair); background: #000; }
-    .proj-body { display: flex; flex-direction: column; flex: 1; padding: 26px 26px 28px; }
-    .proj h3 { font-size: 1.5rem; margin: 14px 0 10px; }
-    .proj p:not(.kicker) { color: #b3b5bc; font-size: .9rem; }
-    .proj .more { align-self: flex-start; margin-top: 22px; }
-    .layers p.stack, .proj p.stack { color: #8b8d95; font-size: .7rem; }
+    .addons { grid-template-columns: repeat(5, 1fr); margin-top: 14px; }
+    .layers li { display: flex; flex-direction: column; background: var(--ink-2); border: 1px solid var(--hair); border-radius: 18px; padding: 24px; }
+    .layers h3 { font-size: 1.3rem; margin: 26px 0 10px; }
+    .layers li > p:not(.label), .addons p { color: var(--soft); font-size: .92rem; line-height: 1.55; }
+    .layers li > p.stack, .proj-body > p.stack { margin-top: auto; padding-top: 26px; color: #8f8d9c; font: 400 .72rem/1.5 var(--mono); }
+    .addons li { border: 1px solid var(--hair); border-radius: 16px; padding: 18px 20px 20px; }
+    .addons h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin-bottom: 6px; }
+    .addons h3::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--lime); flex: none; }
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .proj { display: flex; flex-direction: column; background: var(--ink-2); border: 1px solid var(--hair); border-radius: 20px; overflow: hidden; text-decoration: none; transition: transform .15s ease, border-color .15s ease; }
+    .proj:hover { transform: translateY(-4px); border-color: var(--lime); }
+    .proj img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #000; }
+    .proj-body { display: flex; flex-direction: column; flex: 1; padding: 24px 24px 26px; }
+    .proj h3 { font-size: 1.55rem; margin: 12px 0 10px; }
+    .proj-body > p:not(.label) { color: var(--soft); font-size: .95rem; line-height: 1.55; }
+    .proj-body > p.stack { padding-top: 22px; }
+    .proj .more { align-self: flex-start; margin-top: 20px; }
 
     /* Timeline */
-    .xp { display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(0, 2.25fr); gap: 20px clamp(20px, 3vw, 44px); padding: 44px 0; border-top: 1px solid var(--line); }
-    .xp .num { color: var(--cobalt); font-weight: 500; padding-top: 4px; }
-    .when { font: 400 .7rem var(--mono); color: var(--muted); letter-spacing: .04em; }
-    .xp h3 { font-size: 1.6rem; margin: 12px 0 8px; }
-    .xp .role { color: var(--muted); font-size: .84rem; max-width: 22em; }
-    .xp h4 { margin: 0 0 18px; font-size: 1.12rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.35; }
-    .dash li { position: relative; padding-left: 22px; margin-bottom: 12px; color: #3d3f3c; font-size: .9rem; }
-    .dash li::before { content: ""; position: absolute; left: 0; top: .75em; width: 10px; height: 2px; background: var(--cobalt); }
-    .log li { display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(0, 2.25fr); gap: 6px clamp(20px, 3vw, 44px); padding: 22px 0; border-top: 1px solid var(--line); align-items: baseline; }
-    .log li:last-child { border-bottom: 1px solid var(--line); }
-    .log p { font-size: .95rem; }
-    .log a, .rows a { text-decoration-color: var(--line); text-underline-offset: 3px; }
-    .log a:hover, .rows a:hover { color: var(--cobalt); }
+    .rail { margin-left: 9px; border-left: 2px solid var(--ink); }
+    .rail > li { position: relative; padding: 0 0 26px 36px; }
+    .rail > li:last-child { padding-bottom: 0; }
+    .rail > li::before { content: ""; position: absolute; left: -9px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); }
+    .rail > .now { padding-bottom: 40px; }
+    .rail > .now::before { background: var(--lime); box-shadow: 0 0 0 5px rgba(200, 245, 66, .45); }
+    .when { color: var(--muted); }
+    .rail > li > p { font-size: 1.04rem; margin-top: 4px; max-width: 46em; }
+    .rail a, .rows a { text-decoration-color: var(--violet); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .rail a:hover, .rows a:hover { color: var(--violet); }
+    .xp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr); gap: 24px clamp(24px, 4vw, 56px); margin-top: 12px; padding: clamp(22px, 3vw, 36px); background: var(--white); border: 1.5px solid var(--ink); border-radius: 20px; box-shadow: 8px 8px 0 var(--lime); }
+    .xp h3 { font-size: 2rem; font-weight: 800; letter-spacing: -.045em; margin: 0 0 6px; }
+    .xp .role { color: var(--muted); font-size: .95rem; }
+    .xp h4 { font-size: 1.18rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.35; margin-bottom: 16px; }
+    .ticks li { position: relative; padding-left: 26px; margin-bottom: 11px; color: #37363d; font-size: .96rem; line-height: 1.55; }
+    .ticks li:last-child { margin-bottom: 0; }
+    .ticks li::before { content: ""; position: absolute; left: 2px; top: .52em; width: 9px; height: 9px; border-radius: 2px; background: var(--violet); }
 
     /* Hardware */
-    .builds { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .build { display: flex; flex-direction: column; padding: clamp(22px, 3vw, 40px); border: 1px solid var(--line); background: var(--blue-soft); text-decoration: none; }
-    .build.warm { background: var(--orange-soft); }
-    .build img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--ink); margin-bottom: 30px; }
-    .build .kicker { color: var(--ink); }
-    .build h3 { font-size: clamp(1.7rem, 3.2vw, 2.7rem); letter-spacing: -.06em; line-height: 1.02; margin: 18px 0 16px; max-width: 12em; }
-    .build p:not(.kicker) { font-size: .9rem; color: #33353a; max-width: 38em; }
-    .figure { margin-top: auto; padding-top: 34px; }
-    .figure strong { display: block; font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.1; }
-    .figure span { font-size: .76rem; color: #33353a; }
-    .build .more { margin-top: 22px; justify-content: space-between; }
+    .builds { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .build { display: flex; flex-direction: column; padding: clamp(18px, 2.4vw, 30px); border: 1.5px solid var(--ink); border-radius: 24px; background: var(--lavender); text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+    .build.b { background: var(--lime-soft); }
+    .build:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+    .build img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1.5px solid var(--ink); border-radius: 14px; }
+    .fig { display: flex; justify-content: space-between; gap: 12px; margin: 14px 2px 0; color: #37363d; }
+    .build h3 { font-size: clamp(1.7rem, 3.1vw, 2.6rem); font-weight: 800; letter-spacing: -.045em; line-height: 1.04; margin: 22px 0 14px; max-width: 12em; }
+    .build > p:not(.label) { font-size: .98rem; color: #2e2d34; max-width: 38em; }
+    .figure { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-top: auto; padding-top: 28px; }
+    .figure strong { font-size: clamp(2rem, 3.4vw, 2.7rem); font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
+    .figure span { font-size: .9rem; color: #2e2d34; }
+    .build .more { align-self: flex-start; margin-top: 20px; border-color: var(--ink); }
 
     /* Education */
-    .rows li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3.2fr); gap: 8px 24px; padding: 34px 0; border-top: 1px solid var(--line); }
+    .rows li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3.2fr); gap: 8px 24px; padding: 30px 0; border-top: 1px solid var(--line); }
     .rows li:last-child { border-bottom: 1px solid var(--line); }
-    .rows h3 { font-size: 1.22rem; margin-bottom: 6px; }
-    .rows p { font-size: .88rem; color: #3d3f3c; }
-    .rows .where { color: var(--muted); font-size: .78rem; margin-top: 6px; }
-    .rows .when { color: var(--muted); font-size: .7rem; padding-top: 6px; }
+    .rows .when { padding-top: 6px; }
+    .rows h3 { font-size: 1.35rem; margin-bottom: 4px; }
+    .rows div p { color: #37363d; }
+    .rows div .where { color: var(--muted); font-size: .88rem; }
 
     /* Contact and footer */
-    .contact { background: var(--cobalt); color: #fff; border-top: 0; }
-    .contact .kicker { color: #dfe5ff; }
-    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px clamp(32px, 6vw, 96px); align-items: start; }
-    .contact h2 { max-width: 9em; }
-    .contact p:not(.kicker) { color: #dfe5ff; max-width: 30em; margin-top: 44px; }
-    .mail { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 30px; padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, .4); border-bottom: 1px solid rgba(255, 255, 255, .4); font-size: clamp(1.02rem, 1.9vw, 1.5rem); font-weight: 800; letter-spacing: -.02em; text-decoration: none; overflow-wrap: anywhere; }
-    .mail:hover { border-color: #fff; }
-    .contact .quiet a { color: #dfe5ff; }
-    .contact .quiet a:hover { color: #fff; }
-    .foot { background: var(--night); color: #fff; padding: 56px 0 60px; }
+    .contact { background: var(--lime); }
+    .contact .kicker { color: var(--ink); }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 36px clamp(32px, 6vw, 96px); align-items: end; }
+    .contact h2 { max-width: 9.5em; font-size: clamp(2.4rem, 6vw, 5rem); }
+    .contact-grid > div > p:not(.kicker) { max-width: 30em; font-size: 1.08rem; font-weight: 500; }
+    .mail { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 24px; padding: 18px 26px; border-radius: 999px; background: var(--ink); color: #fff; font-size: clamp(1rem, 1.7vw, 1.3rem); font-weight: 700; text-decoration: none; overflow-wrap: anywhere; transition: background .15s ease; }
+    .mail:hover { background: var(--violet-deep); }
+    .contact .quiet a { color: var(--ink); }
+    .contact .quiet a:hover { text-decoration: underline; color: var(--ink); }
+    .foot { background: var(--ink); color: #fff; padding: 52px 0 56px; }
     .foot-grid { display: grid; grid-template-columns: 1.1fr 1.6fr 1fr 1fr; gap: 32px; align-items: start; }
-    .foot .mark { border-color: #fff; }
-    .foot p { color: #a9abb3; font-size: .8rem; }
-    .foot ul a { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .8rem; text-decoration: none; line-height: 2.1; }
-    .foot ul a:hover { color: var(--cobalt-light); }
+    .foot .mark::after { border-color: var(--ink); }
+    .foot p { color: var(--soft); font-size: .9rem; }
+    .foot ul a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem; text-decoration: none; line-height: 2.05; }
+    .foot ul a:hover { color: var(--lime); }
     .foot .right { text-align: right; }
 
     @media (max-width: 1180px) {
@@ -194,33 +220,40 @@
     }
     @media (max-width: 900px) {
       .menu { display: grid; }
-      .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 6px var(--gutter) 22px; background: var(--bone); border-bottom: 1px solid var(--line); }
+      .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 6px var(--gutter) 22px; background: var(--paper); border-bottom: 1px solid var(--line); }
       .top.is-open .nav { display: flex; }
-      .nav a:not(.btn) { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+      .nav a:not(.btn) { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 1.02rem; }
       .nav .btn { margin-top: 18px; height: 50px; justify-content: center; }
-      .hero, .head, .case, .contact-grid { grid-template-columns: 1fr; }
-      .bring { margin: 0 14px 14px 0; box-shadow: 14px 14px 0 var(--orange); }
+      .hero, .head, .case, .contact-grid, .xp { grid-template-columns: 1fr; }
+      .portrait { width: min(100% - 44px, 400px); margin: 8px auto 14px 22px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
-      .case-side { border-left: 0; border-top: 1px solid var(--hair); }
-      .xp, .log li { grid-template-columns: 1fr; }
-      .xp { padding: 34px 0; }
+      .stats li:nth-child(3) { border-left: 0; }
+      .stats li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+      .case-side { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .2); }
       .builds { grid-template-columns: 1fr; }
       .rows li { grid-template-columns: 1fr; }
-      .contact p:not(.kicker) { margin-top: 0; }
       .foot-grid { grid-template-columns: 1fr 1fr; }
       .foot .right { text-align: left; }
     }
     @media (max-width: 640px) {
       .domains, .addons, .layers, .projects { grid-template-columns: 1fr; }
-      .domains h3 { margin-top: 30px; }
+      .domains h3 { margin-top: 22px; }
       .actions .btn { flex: 1 1 100%; justify-content: center; }
-      .stats li { padding: 20px; }
+      .stats li { padding: 18px 18px 20px; }
+      .nametag { left: -14px; bottom: 18px; }
+      .sticker { right: -24px; top: 61%; }
+      .status { letter-spacing: .03em; }
+      .rail > li { padding-left: 26px; }
+      .xp { box-shadow: 6px 6px 0 var(--lime); }
+      .mail { padding: 16px 20px; }
       .foot-grid { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .btn, .proj, .more .icon { transition: none; }
-      .more:hover .icon, a:hover > .more .icon { transform: none; }
+      .ticker-track { animation: none; }
+      .btn, .proj, .build, .domains li, .more .icon, .mail { transition: none; }
+      .proj:hover, .build:hover, .domains li:hover { transform: none; }
+      a:hover > .more .icon, a.more:hover .icon, a:hover .more .icon { transform: none; }
     }
   </style>
   <noscript><style>@media (max-width: 900px) { .menu { display: none; } .nav { display: flex; position: static; padding: 0 0 18px; border: 0; } .bar { flex-wrap: wrap; } }</style></noscript>
@@ -230,13 +263,13 @@
     <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   </svg>
 
   <header class="top" id="site-top">
     <div class="wrap bar">
-      <a class="brand" href="#top"><span class="mark">VA</span>V. Anbuchelvan</a>
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true">A</span>V. Anbuchelvan</a>
       <button class="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg class="icon"><use href="#i-menu"/></svg></button>
       <nav class="nav" id="nav">
         <a href="#work">Work</a>
@@ -244,83 +277,86 @@
         <a href="#skills">Skills</a>
         <a href="#hardware">Hardware</a>
         <a href="#contact">Contact</a>
-        <a class="btn" href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a>
+        <a class="btn solid" href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a>
       </nav>
     </div>
   </header>
-  <div class="strip">Engineer / Builder / Tinkerer</div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Eesa AI</span><span>SlideView</span><span>Keyboard Strobe</span><span>HapticMouse</span><span>Aether</span><span>ZANYSURF Browser Agent</span><span>Anbu Surveillance</span><span>Junkyard home server</span><span>TVS Centra restoration</span>
+      <span>Eesa AI</span><span>SlideView</span><span>Keyboard Strobe</span><span>HapticMouse</span><span>Aether</span><span>ZANYSURF Browser Agent</span><span>Anbu Surveillance</span><span>Junkyard home server</span><span>TVS Centra restoration</span>
+    </div>
+  </div>
 
   <main id="top">
-    <div class="wrap">
-      <div class="hero">
-        <div>
-          <p class="kicker">V. Anbuchelvan / Building Eesa AI / CS undergrad at SRM</p>
-          <h1>I build software businesses run their day on.</h1>
-          <p class="lede">I work on every layer of Eesa AI, an agent platform that is live in production: the phone app, the web app, the backend and the add-ons the agent uses as tools. On the side I ship open-source Mac apps and local AI tools, and bring the odd dead computer or motorcycle back to life.</p>
-          <div class="actions">
-            <a class="btn solid" href="#work">See the work <svg class="icon"><use href="#i-down"/></svg></a>
-            <a class="btn" href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a>
+    <div class="hero-band">
+      <div class="wrap">
+        <div class="hero">
+          <div>
+            <p class="status label">Open to internships and engineering roles</p>
+            <h1>I build software businesses <em>run their day on.</em></h1>
+            <p class="lede">I work on every layer of Eesa AI, an agent platform that is live in production: the phone app, the web app, the backend and the add-ons the agent uses as tools. On the side I ship open-source Mac apps and local AI tools, and bring the odd dead computer or motorcycle back to life.</p>
+            <div class="actions">
+              <a class="btn solid" href="#work">See the work <svg class="icon"><use href="#i-down"/></svg></a>
+              <a class="btn" href="https://github.com/ZANYANBU">GitHub <svg class="icon"><use href="#i-out"/></svg></a>
+            </div>
+            <div class="quiet">
+              <a href="mailto:zanyanbuchelvan@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>Email</a>
+              <a href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/"><svg class="icon"><use href="#i-out"/></svg>LinkedIn</a>
+            </div>
           </div>
-          <div class="quiet">
-            <a href="mailto:zanyanbuchelvan@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>Email</a>
-            <a href="https://www.linkedin.com/in/anbuchelvan-v-aa5b11260/"><svg class="icon"><use href="#i-out"/></svg>LinkedIn</a>
-          </div>
+          <figure class="portrait">
+            <div class="portrait-panel"></div>
+            <img src="assets/anbu.webp" alt="V. Anbuchelvan" width="920" height="951">
+            <p class="sticker label">CS undergrad / SRM</p>
+            <figcaption class="nametag"><strong>V. Anbuchelvan</strong><span class="label">Building Eesa AI</span></figcaption>
+          </figure>
         </div>
-        <aside class="bring" aria-label="What I bring">
-          <p class="kicker">What I bring</p>
-          <dl>
-            <div><dt>1,400+ commits</dt><dd>On Eesa AI since June 2026</dd></div>
-            <div><dt>The whole product</dt><dd>Phone app, web, backend, agent tools</dd></div>
-            <div><dt>3 Mac apps</dt><dd>Released and ready to download</dd></div>
-            <div><dt>Hardware too</dt><dd>A server from scrap, a motorcycle restored</dd></div>
-          </dl>
-          <p class="open">Open to internships and engineering roles</p>
-        </aside>
+        <ul class="stats">
+          <li><strong>1,400+</strong><span>commits on Eesa AI in four months</span></li>
+          <li><strong>9</strong><span>repositories across the product</span></li>
+          <li><strong>5</strong><span>add-ons the agent uses as tools</span></li>
+          <li><strong>168</strong><span>automated tests in my open-source projects</span></li>
+        </ul>
       </div>
-      <ul class="stats">
-        <li><strong>1,400+</strong><span>commits on Eesa AI in four months</span></li>
-        <li><strong>9</strong><span>repositories across the product</span></li>
-        <li><strong>5</strong><span>add-ons the agent uses as tools</span></li>
-        <li><strong>168</strong><span>automated tests in my open-source projects</span></li>
-      </ul>
     </div>
 
-    <section class="sec paper" id="skills">
+    <section class="sec first" id="skills">
       <div class="wrap">
         <div class="head">
           <div>
-            <p class="kicker">01 / What I do</p>
+            <p class="kicker label"><b>01</b>What I do</p>
             <h2>What I build, and what I build it with</h2>
           </div>
           <p>Five kinds of work, each next to the tools I reach for when I do it.</p>
         </div>
         <ul class="domains">
           <li>
-            <p class="num">01</p>
+            <p class="num">A / 01</p>
             <h3>AI agents and local AI</h3>
             <p>Tools an agent can call, workflows that wait for a person's answer, and approval before anything is written to an outside system. Local models for chat and vision.</p>
             <div class="chips"><span>MCP</span><span>LangGraph</span><span>Claude API</span><span>Agent tool design</span><span>Ollama</span><span>PyTorch</span><span>YOLO</span><span>OpenCV</span></div>
           </li>
           <li>
-            <p class="num">02</p>
+            <p class="num">A / 02</p>
             <h3>Phone apps</h3>
             <p>The iPhone and Android app for Eesa, written in Flutter: chat, boards, and sharing a file in from any other app.</p>
             <div class="chips"><span>Flutter</span><span>Dart</span><span>Swift</span><span>React Native</span></div>
           </li>
           <li>
-            <p class="num">03</p>
+            <p class="num">A / 03</p>
             <h3>Web and backend</h3>
             <p>Screens in the browser and the services behind them, with tests and builds that run on every push.</p>
             <div class="chips"><span>Python</span><span>FastAPI</span><span>Flask</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Docker</span><span>GitHub Actions</span></div>
           </li>
           <li>
-            <p class="num">04</p>
+            <p class="num">A / 04</p>
             <h3>Mac apps and systems</h3>
             <p>Native utilities that reach where apps usually do not: the keyboard's LEDs, the trackpad's haptics, the sound the Mac is playing.</p>
             <div class="chips"><span>Swift</span><span>C</span><span>macOS internals</span><span>ScreenCaptureKit</span><span>XCTest</span><span>Linux</span><span>TrueNAS</span></div>
           </li>
           <li>
-            <p class="num">05</p>
+            <p class="num">A / 05</p>
             <h3>AI-assisted development</h3>
             <p>I build with coding agents every day, and back what they write with tests and automated builds.</p>
             <div class="chips"><span>Claude Code</span><span>Google Antigravity</span><span>GitHub Copilot</span></div>
@@ -333,7 +369,7 @@
       <div class="wrap">
         <div class="head">
           <div>
-            <p class="kicker">02 / Selected work</p>
+            <p class="kicker label"><b>02</b>Selected work</p>
             <h2>What I built, and why</h2>
           </div>
           <p>The product I work on every day comes first. After it, the tools I made because I wanted them to exist.</p>
@@ -341,41 +377,41 @@
 
         <article class="case" id="eesa">
           <div class="case-main">
-            <p class="kicker hot">1 / Product / Live in production</p>
-            <p class="case-name">EESA.AI</p>
+            <p class="live label">Product / Live in production</p>
+            <p class="case-name">Eesa<span>.ai</span></p>
             <h3>A business runs its operations by asking.</h3>
-            <p>Eesa connects to the systems a company already uses, builds the screens its team needs, and does the work: on the web, on iPhone and Android, and in WhatsApp.</p>
-            <a class="more" href="https://eesa.ai">Visit eesa.ai <svg class="icon"><use href="#i-right"/></svg></a>
+            <p class="case-text">Eesa connects to the systems a company already uses, builds the screens its team needs, and does the work: on the web, on iPhone and Android, and in WhatsApp.</p>
+            <a class="btn lime" href="https://eesa.ai">Visit eesa.ai <svg class="icon"><use href="#i-out"/></svg></a>
           </div>
           <div class="case-side">
-            <div><p class="kicker hot">Problem</p><p>A small business's day is spread over apps, spreadsheets and chat threads that do not talk to each other.</p></div>
-            <div><p class="kicker hot">Product</p><p>One agent that reads those systems, builds a screen for each job and carries out the request, with a person's approval where it matters.</p></div>
-            <div><p class="kicker hot">My part</p><p>The phone app, five add-ons, workflow and approval work in the backend, and the same screens on the web.</p></div>
+            <div><p class="label tone">Problem</p><p>A small business's day is spread over apps, spreadsheets and chat threads that do not talk to each other.</p></div>
+            <div><p class="label tone">Product</p><p>One agent that reads those systems, builds a screen for each job and carries out the request, with a person's approval where it matters.</p></div>
+            <div><p class="label tone">My part</p><p>The phone app, five add-ons, workflow and approval work in the backend, and the same screens on the web.</p></div>
           </div>
         </article>
 
-        <p class="kicker hot sub">My work on Eesa, layer by layer</p>
+        <p class="label sub">My work on Eesa, layer by layer</p>
         <ul class="layers">
           <li>
-            <p class="kicker hot">Phone app</p>
+            <p class="label tone">Phone app</p>
             <h3>iPhone and Android</h3>
             <p>Primary contributor to the app: chat, the Flow Board, and sharing a file to Eesa from any other app.</p>
             <p class="stack">Flutter / Dart / Swift</p>
           </li>
           <li>
-            <p class="kicker hot">Add-ons</p>
+            <p class="label tone">Add-ons</p>
             <h3>Tools the agent can use</h3>
             <p>Primary contributor to five add-ons that plug into the agent as tools and show up in chat, on the boards and on the team's phones.</p>
             <p class="stack">Node.js / MCP / PostgreSQL</p>
           </li>
           <li>
-            <p class="kicker hot">Backend</p>
+            <p class="label tone">Backend</p>
             <h3>Workflows, roles, approvals</h3>
             <p>Workflows that run on a schedule and wait for a person's answer, role-based access for add-ons, approval before the agent writes to an outside system, and the server-driven share page.</p>
             <p class="stack">Python / LangGraph</p>
           </li>
           <li>
-            <p class="kicker hot">Web app</p>
+            <p class="label tone">Web app</p>
             <h3>The same screens in the browser</h3>
             <p>The flows from the phone, built again for the web.</p>
             <p class="stack">Next.js / TypeScript</p>
@@ -389,12 +425,12 @@
           <li><h3>QuickBooks</h3><p>The agent reads the accounts. Every write waits for an approver.</p></li>
         </ul>
 
-        <p class="kicker hot sub">Open source, built because I wanted it</p>
+        <p class="label sub">Open source, built because I wanted it</p>
         <div class="projects">
           <a class="proj" href="https://zanyanbu.github.io/SlideView/">
             <img src="assets/slideview.jpg" alt="The SlideView library showing lecture decks grouped by subject" width="960" height="600" loading="lazy">
             <div class="proj-body">
-              <p class="kicker hot">2 / Mac app / Swift</p>
+              <p class="label tone">Mac app / Swift</p>
               <h3>SlideView</h3>
               <p>A native Mac study app. Every lecture file in one dark, offline library, with a drawing board and a map of how your material connects.</p>
               <p class="stack">58 tests / Released as a download</p>
@@ -404,7 +440,7 @@
           <a class="proj" href="https://zanyanbu.github.io/aether/">
             <img src="assets/aether.jpg" alt="The Aether chat welcome screen" width="960" height="600" loading="lazy">
             <div class="proj-body">
-              <p class="kicker hot">3 / Local AI / Python</p>
+              <p class="label tone">Local AI / Python</p>
               <h3>Aether</h3>
               <p>Private AI chat that runs entirely on your own machine with any Ollama model: text, images and hands-free voice.</p>
               <p class="stack">Python / Ollama</p>
@@ -414,7 +450,7 @@
           <a class="proj" href="https://zanyanbu.github.io/keyboard-strobe/">
             <img src="assets/strobe.jpg" alt="A MacBook in a dark room with its keyboard backlight lit" width="960" height="600" loading="lazy">
             <div class="proj-body">
-              <p class="kicker hot">4 / Mac app / Swift</p>
+              <p class="label tone">Mac app / Swift</p>
               <h3>Keyboard Strobe</h3>
               <p>Flashes a MacBook's keyboard backlight in time with whatever is playing, by driving the LEDs through a private Apple framework.</p>
               <p class="stack">Swift / ScreenCaptureKit</p>
@@ -424,7 +460,7 @@
           <a class="proj" href="https://zanyanbu.github.io/haptic-mouse/">
             <img src="assets/haptic.jpg" alt="The HapticMouse menu open in the menu bar" width="960" height="600" loading="lazy">
             <div class="proj-body">
-              <p class="kicker hot">5 / Mac app / Swift</p>
+              <p class="label tone">Mac app / Swift</p>
               <h3>HapticMouse</h3>
               <p>Gives any cheap USB mouse a haptic scroll wheel by borrowing the Taptic Engine in the MacBook's trackpad.</p>
               <p class="stack">Swift / Released as a download</p>
@@ -434,7 +470,7 @@
           <a class="proj" href="https://microsoftedge.microsoft.com/addons/detail/pmadlohecccigmfcmickngnlikhmnjpa">
             <img src="assets/zanysurf.jpg" alt="The ZANYSURF browser agent working through a task" width="960" height="600" loading="lazy">
             <div class="proj-body">
-              <p class="kicker hot">6 / Browser agent / JavaScript</p>
+              <p class="label tone">Browser agent / JavaScript</p>
               <h3>ZANYSURF Browser Agent</h3>
               <p>An AI agent that plans, clicks and fills in forms in the browser, fully local with Ollama or with other providers.</p>
               <p class="stack">JavaScript / Ollama</p>
@@ -444,7 +480,7 @@
           <a class="proj" href="https://github.com/ZANYANBU/Anbu-Surveillance">
             <img src="assets/surveillance.jpg" alt="The Anbu Surveillance camera setup dialog" width="960" height="600" loading="lazy">
             <div class="proj-body">
-              <p class="kicker hot">7 / Computer vision / Python</p>
+              <p class="label tone">Computer vision / Python</p>
               <h3>Anbu Surveillance</h3>
               <p>Home security across several cameras: YOLO person detection, recorded clips and email alerts with a snapshot.</p>
               <p class="stack">Python / YOLO / OpenCV</p>
@@ -459,45 +495,46 @@
       <div class="wrap">
         <div class="head">
           <div>
-            <p class="kicker">03 / Experience</p>
+            <p class="kicker label"><b>03</b>Experience</p>
             <h2>Building since 2024</h2>
           </div>
-          <p>Something shipped in most quarters.</p>
+          <p>Something shipped in most quarters. Newest first.</p>
         </div>
-        <article class="xp">
-          <p class="num">01</p>
-          <div>
-            <p class="when">Jun 2026 - Present</p>
-            <h3>Eesa AI</h3>
-            <p class="role">Phone app, add-ons, backend and web</p>
-          </div>
-          <div>
-            <h4>Working across the whole of an agent platform that businesses use every day.</h4>
-            <ul class="dash">
-              <li>Primary contributor to the iPhone and Android app in Flutter: chat, the Flow Board, and sharing a file to Eesa from any other app.</li>
-              <li>Primary contributor to five add-ons that plug into the agent as tools: Attendance, Drive, Invoices, Calls and QuickBooks.</li>
-              <li>Worked on workflows that run on a schedule and wait for a person's answer, role-based access for add-ons, and approval before the agent writes to an outside system.</li>
-              <li>1,400+ commits across nine repositories in four months. The code is private, and I am happy to walk through any part of it.</li>
-            </ul>
-          </div>
-        </article>
-        <ol class="log">
-          <li><span class="num">02</span><span class="when">Oct 2026</span><p>Tests, automated builds and downloadable releases across the open-source projects.</p></li>
-          <li><span class="num">03</span><span class="when">Sep 2026</span><p>SlideView, because no slide viewer did what I needed for revision.</p></li>
-          <li><span class="num">04</span><span class="when">Jul 2026</span><p>Aether, HapticMouse and Keyboard Strobe in one month. Restored the TVS Centra.</p></li>
-          <li><span class="num">05</span><span class="when">Mar 2026</span><p>ZANYSURF Browser Agent published on Microsoft Edge Add-ons.</p></li>
-          <li><span class="num">06</span><span class="when">Feb 2026</span><p>A school management system for a database course, and <a href="https://zanyanbu.github.io/Quantum-Classroom/">Quantum Classroom</a> as a side project.</p></li>
-          <li><span class="num">07</span><span class="when">Jul 2025</span><p>Rebuilt a PC from scrap and made it a TrueNAS server.</p></li>
-          <li><span class="num">08</span><span class="when">Mar 2025</span><p>First shipped things: <a href="https://zanyanbu.github.io/Birdfy.com/">Birdfy</a>, a browser game, and a YOLO home-security system.</p></li>
+        <ol class="rail">
+          <li class="now">
+            <span class="when label">Jun 2026 to now</span>
+            <article class="xp">
+              <div>
+                <h3>Eesa AI</h3>
+                <p class="role">Phone app, add-ons, backend and web</p>
+              </div>
+              <div>
+                <h4>Working across the whole of an agent platform that businesses use every day.</h4>
+                <ul class="ticks">
+                  <li>Primary contributor to the iPhone and Android app in Flutter: chat, the Flow Board, and sharing a file to Eesa from any other app.</li>
+                  <li>Primary contributor to five add-ons that plug into the agent as tools: Attendance, Drive, Invoices, Calls and QuickBooks.</li>
+                  <li>Worked on workflows that run on a schedule and wait for a person's answer, role-based access for add-ons, and approval before the agent writes to an outside system.</li>
+                  <li>1,400+ commits across nine repositories in four months. The code is private, and I am happy to walk through any part of it.</li>
+                </ul>
+              </div>
+            </article>
+          </li>
+          <li><span class="when label">Oct 2026</span><p>Tests, automated builds and downloadable releases across the open-source projects.</p></li>
+          <li><span class="when label">Sep 2026</span><p>SlideView, because no slide viewer did what I needed for revision.</p></li>
+          <li><span class="when label">Jul 2026</span><p>Aether, HapticMouse and Keyboard Strobe in one month. Restored the TVS Centra.</p></li>
+          <li><span class="when label">Mar 2026</span><p>ZANYSURF Browser Agent published on Microsoft Edge Add-ons.</p></li>
+          <li><span class="when label">Feb 2026</span><p>A school management system for a database course, and <a href="https://zanyanbu.github.io/Quantum-Classroom/">Quantum Classroom</a> as a side project.</p></li>
+          <li><span class="when label">Jul 2025</span><p>Rebuilt a PC from scrap and made it a TrueNAS server.</p></li>
+          <li><span class="when label">Mar 2025</span><p>First shipped things: <a href="https://zanyanbu.github.io/Birdfy.com/">Birdfy</a>, a browser game, and a YOLO home-security system.</p></li>
         </ol>
       </div>
     </section>
 
-    <section class="sec paper" id="hardware">
+    <section class="sec white" id="hardware">
       <div class="wrap">
         <div class="head">
           <div>
-            <p class="kicker">04 / Hardware</p>
+            <p class="kicker label"><b>04</b>Hardware</p>
             <h2>I take hardware apart too</h2>
           </div>
           <p>Two build logs, with photos of every stage. The same habit as the software: understand it from first principles, then build it.</p>
@@ -505,15 +542,15 @@
         <div class="builds">
           <a class="build" href="https://zanyanbu.github.io/junkyard-pc-to-truenas/">
             <img src="assets/junkyard.jpg" alt="A salvaged PC running open on a bench" width="960" height="600" loading="lazy">
-            <p class="kicker">Home server / 2025</p>
+            <p class="fig label"><span>Fig. 01</span><span>Home server / 2025</span></p>
             <h3>Junkyard PC to home server</h3>
             <p>In first year I rebuilt a dead PC from e-waste: straightened bent socket pins, replaced a swollen capacitor and reflashed the BIOS. It now runs TrueNAS.</p>
             <div class="figure"><strong>200 GB</strong><span>recovered from a wiped disk</span></div>
             <span class="more">Read the build log <svg class="icon"><use href="#i-right"/></svg></span>
           </a>
-          <a class="build warm" href="https://zanyanbu.github.io/tvs-centra-restoration/">
+          <a class="build b" href="https://zanyanbu.github.io/tvs-centra-restoration/">
             <img src="assets/tvs.jpg" alt="The restored TVS Centra motorcycle at night" width="960" height="600" loading="lazy">
-            <p class="kicker">Motorcycle / 2026</p>
+            <p class="fig label"><span>Fig. 02</span><span>Motorcycle / 2026</span></p>
             <h3>TVS Centra restoration</h3>
             <p>My father rode this bike for 20 years. He and I brought it back with parts from a ₹3,000 scrapyard donor and a full AC to DC electrical conversion.</p>
             <div class="figure"><strong>100,000 km</strong><span>on the bike before we rebuilt it</span></div>
@@ -527,13 +564,13 @@
       <div class="wrap">
         <div class="head">
           <div>
-            <p class="kicker">05 / Education</p>
+            <p class="kicker label"><b>05</b>Education</p>
             <h2>Education</h2>
           </div>
         </div>
         <ul class="rows">
           <li>
-            <p class="when">Third year</p>
+            <p class="when label">Third year</p>
             <div>
               <h3>SRM Institute of Science &amp; Technology</h3>
               <p>Undergraduate in Computer Science</p>
@@ -541,7 +578,7 @@
             </div>
           </li>
           <li>
-            <p class="when">2024</p>
+            <p class="when label">2024</p>
             <div>
               <h3>CS50 and Python on edX</h3>
               <p>Where I started. The certificates are in <a href="https://github.com/ZANYANBU/Certificates">one place</a>.</p>
@@ -554,7 +591,7 @@
     <section class="sec contact" id="contact">
       <div class="wrap contact-grid">
         <div>
-          <p class="kicker">06 / Contact</p>
+          <p class="kicker label"><b>06</b>Contact</p>
           <h2>Have something that needs building?</h2>
         </div>
         <div>
@@ -571,7 +608,7 @@
 
   <footer class="foot">
     <div class="wrap foot-grid">
-      <a class="brand" href="#top"><span class="mark">VA</span>V. Anbuchelvan</a>
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true">A</span>V. Anbuchelvan</a>
       <p>Building Eesa AI, open-source Mac apps and local AI tools.</p>
       <ul>
         <li><a href="mailto:zanyanbuchelvan@gmail.com">Email <svg class="icon"><use href="#i-out"/></svg></a></li>
